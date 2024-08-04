@@ -1,3 +1,3 @@
-# 1er pre entrega del Proyecto final - React -
+# 2ª pre entrega del Proyecto Final - React -
 
-## la michITienda eCommerce
+## La michITienda eCommerce
