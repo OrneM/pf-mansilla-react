@@ -1,82 +1,121 @@
-*{
-  margin :0;
-  padding :0;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Asegura que padding y borders no aumenten el ancho/alto total */
 }
 
-.cartImg{
-
-  width: 50px;
-  height: 50px;
-  
+.cartImg {
+  width: 70px;
+  height: 70px;
 }
 
+.cartImg:hover {
+  filter: drop-shadow(0px 0px 10px rgba(47, 49, 49, 0.521));
+}
 
-.logo{
+img.logo {
   width: 170px;
   height: 170px;
-
 }
 
+.logo:hover {
+  filter: drop-shadow(0px 0px 10px rgba(47, 49, 49, 0.521));
+}
+
+
+
+.nav-link {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: #333; /* Color del texto */
+  transition: color 0.3s ease; /* Suaviza el cambio de color */
+  margin-left: 160px;
+  
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #333; /* Color del subrayado */
+  left: 0;
+  bottom: 0;
+  transition: width 0.3s ease; /* Suaviza la animación del subrayado */
+}
+
+.nav-link:hover {
+  color: #000; /* Color del texto al hacer hover */
+}
+
+.nav-link:hover::after {
+  width: 100%; /* Expande el subrayado al ancho completo del enlace */
+}
 
 .main-bkg {
-  flex-direction: row;
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
-.greeting{
+.greeting {
   display: flex;
   justify-content: center;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
   color: #e5e5e5de;
-  margin-top: 0;
-
+  margin-bottom: 0;
+  width: 100%;
 }
 
-
-.product-container  {
+.product-container {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: center;
-}
-
-.detail-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  align-content: center;
   justify-content: center;
+  align-items: stretch;
+  gap: 2rem;
+  background-color:rgba(48, 48, 48, 0.103);
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
 }
-
-
-
 
 .card {
-  margin: 2rem;
-  margin-top: 20%;
   display: flex;
-  justify-content: center;
-  
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem;
+  width: 200px; /* Tamaño fijo o puedes ajustarlo */
+  flex: 0 1 auto; /* Flexibilidad ajustada para mantener el tamaño de la tarjeta */
 }
 
-.card-body{
+.card-body {
   border-top: 1px solid #efefefcf;
   display: block;
   text-align: center;
 }
 
-@keyframes slideHorizontally {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
+.detail-container{
+  display: flex;
+  justify-content: center;
+  background-color:rgba(48, 48, 48, 0.103);
+  
+  width: 100%;
+  height: 100%;
+
 }
 
-
-footer{
+footer {
   background-color: rgba(0, 0, 0, 0.527);
   height: 2rem;
   color: #e5e5e5de;
   text-align: center;
 }
+
+
