@@ -5,6 +5,7 @@ import AboutUs from './components/AboutUs/AboutUs.jsx';
 import Contact from './components/Contact/Contact.jsx';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer.jsx';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer.jsx';
+import Cart from './components/Cart/Cart.jsx';
 import Error404 from './components/Error404/Error404.jsx';
 import Footer from './components/Footer/Footer.jsx';
 
@@ -21,6 +22,7 @@ function App() {
           <Route path='/item/:itemId' element={<ItemDetailContainer />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<AboutUs />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<Error404 />} />
         </Routes>
         <Footer/>

@@ -1,5 +1,14 @@
+import ItemCount from "../ItemCount/ItemCount"
+
 
 const ItemDetail = ({id, name, image, description, price, stock}) => {
+
+
+    const handleOnBuy = (qty) => {
+        console.log(`Se agregaron ${qty} productos al carrito`);
+        const item = {id, name, description, price};
+        addToCart(item, qty);
+    }
     return (
         <div className="card" style={{ width: '30rem', margin:'5rem' }}>
         <img src={image} className="card-img-top" alt={description}/>
@@ -8,7 +17,7 @@ const ItemDetail = ({id, name, image, description, price, stock}) => {
         <p className="card-text">Id: {id}</p>
         <p className="card-text">Descripción: {description}</p>
         <h3 className="card-text">{price}</h3>
-        <button className="btn btn-primary" variant="primary">Comprar</button>
+        <ItemCount initial = {1} stock ={stock}onAdd={(quantity) => console.log ("cantidad agregada", quantity)} />
         <p className="card-text">Stock: {stock}</p>
     </div>
 </div>

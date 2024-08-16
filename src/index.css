@@ -7,21 +7,26 @@
 .cartImg {
   width: 70px;
   height: 70px;
+  transition: transform 0.6s ease, box-shadow 0.3s ease; /* Ajusta la duración del transform */
 }
 
 .cartImg:hover {
-  filter: drop-shadow(0px 0px 10px rgba(47, 49, 49, 0.521));
+  transform: scale(1.1); /* Agrandar la imagen */
+  box-shadow: none; /* Eliminar la sombra */
 }
 
 img.logo {
   width: 170px;
   height: 170px;
+    position: relative;
+    padding: 10px;
+    transition: transform 0.6s ease, box-shadow 0.3s ease; /* Ajusta la duración del transform */
 }
-
-.logo:hover {
-  filter: drop-shadow(0px 0px 10px rgba(47, 49, 49, 0.521));
-}
-
+  
+  .logo:hover {
+    transform: scale(1.1); /* Agrandar la imagen */
+    box-shadow: none; /* Eliminar la sombra */
+  }
 
 
 .nav-link {
@@ -110,6 +115,37 @@ img.logo {
   height: 100%;
 
 }
+
+.btn-primary {
+  background-color: #4682b4;
+  border-color: #4682b4;
+}
+
+.btn-primary:hover{
+  background-color: #36648B;
+  border-color: #36648B;
+
+}
+
+bs-btn-active-bg:active {
+  background-color: #2C5377; /* Color para el estado activo */
+}
+
+.controls {
+  display: flex;
+  justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+
+.counter {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
 
 footer {
   background-color: rgba(0, 0, 0, 0.527);
