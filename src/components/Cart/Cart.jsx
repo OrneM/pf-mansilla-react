@@ -1,10 +1,11 @@
 import { useCartContext } from "../../context/CartContext"
+import { Link } from "react-router-dom"
 
 
 
 const Cart = () => {
 
-    const { cart, total, removeItem, clearCart } = useCartContext()
+    const { qtyItems, cart, total, removeItem, clearCart } = useCartContext()
 
     const handleRemoveItem = (id, price, qty) => {
       removeItem(id, price, qty);
@@ -12,6 +13,16 @@ const Cart = () => {
 
     const handleClearCart = () => {
       clearCart();
+    }
+
+
+    if (qtyItems === 0){
+      return (
+        <div className="carrito-vacio">
+          <h1> ¡Ups... tu carrito está vacio!</h1>
+          <Link to= "/" className="btn btn-primary"> Productos </Link>
+        </div>
+      )
     }
 
     return (

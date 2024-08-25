@@ -32,6 +32,12 @@ div.container-fluid{
   flex-direction: column;
 }
 
+
+.qtyItems {
+  text-decoration: none !important;
+  color: inherit; /* Mantiene el color del texto por defecto */
+}
+
 .cartImg {
   width: 50px;
   height: 50px;
@@ -46,6 +52,8 @@ div.container-fluid{
   padding: 5px;
   align-items: flex-end;
   flex-direction: row;
+  text-decoration: none !important;
+  color: rgb(36, 36, 36);
   
 }
 
@@ -200,6 +208,24 @@ bs-btn-active-bg:active {
     background-color: #2C5377;
     border-color: #36648B;
   }
+
+  .carrito-vacio {
+    background-color: #f0f8ff; /* Celeste claro */
+    border: 1px solid #d3d3d3; /* Gris */
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    color: #333; /* Gris oscuro para el texto */
+    height: 535px;
+
+  }
+
+  .carrito-vacio h1 {
+    color: #005f73; /* Celeste más oscuro */
+    margin-bottom: 20px;
+   
+    
+  }
   
 
 .controls {
@@ -221,6 +247,7 @@ bs-btn-active-bg:active {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  height: 535px;
 }
 table {
   width: 100%;
@@ -284,6 +311,7 @@ footer {
   height: 2rem;
   color: #e5e5e5de;
   text-align: center;
+  
 }
 
 
