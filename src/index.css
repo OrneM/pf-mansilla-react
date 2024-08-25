@@ -4,15 +4,54 @@
   box-sizing: border-box; /* Asegura que padding y borders no aumenten el ancho/alto total */
 }
 
+div.container-fluid{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.navbar>.container-fluid {
+  align-items: normal;
+}
+
+.navbar-logo {
+  align-self: center;
+}
+
+.navbar-shorcuts {
+  display: flex;
+}
+
+.navbar-toggler-container {
+  flex: 1;
+  place-content: center;
+  text-align: center;
+}
+
+.navbar-expand-lg .navbar-collapse {
+  flex-direction: column;
+}
+
 .cartImg {
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   transition: transform 0.6s ease, box-shadow 0.3s ease; /* Ajusta la duración del transform */
 }
 
-.cartImg:hover {
+
+.cart-icon-container {
+  display: flex;
+  border: 1px solid rgba(139, 134, 134, 0.225);
+  border-radius: 6px;
+  padding: 5px;
+  align-items: flex-end;
+  flex-direction: row;
+  
+}
+
+.cart-icon-container:hover {
   transform: scale(1.1); /* Agrandar la imagen */
-  box-shadow: none; /* Eliminar la sombra */
+  box-shadow: none; /* Eliminar la sombra */ 
 }
 
 img.logo {
@@ -28,6 +67,9 @@ img.logo {
     box-shadow: none; /* Eliminar la sombra */
   }
 
+  .navbar-shorcuts .cart-container:first-of-type {
+    visibility: hidden;
+  }
 
 .nav-link {
   position: relative;
@@ -35,8 +77,7 @@ img.logo {
   text-decoration: none;
   color: #333; /* Color del texto */
   transition: color 0.3s ease; /* Suaviza el cambio de color */
-  margin-left: 160px;
-  
+  margin: 10px;
 }
 
 .nav-link::after {
@@ -127,9 +168,39 @@ img.logo {
 
 }
 
+
 bs-btn-active-bg:active {
   background-color: #2C5377; /* Color para el estado activo */
 }
+
+.limpiar-carrito{
+  
+    display: inline-block;
+    font-weight: 400;
+    color: #fff;
+    background-color: #4682b4;
+    border-color: #4682b4;
+    margin: 10px;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+   
+}
+  
+  .limpiar-carrito:hover {
+    background-color: #36648B;
+  border-color: #36648B;
+  }
+  
+  .limpiar-carrito:active {
+    background-color: #2C5377;
+    border-color: #36648B;
+  }
+  
 
 .controls {
   display: flex;
@@ -144,6 +215,67 @@ bs-btn-active-bg:active {
   flex-direction: column;
   flex-wrap: wrap;
   align-content: center;
+}
+
+.table-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: #f0f8ff; /* Fondo celeste claro */
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Estilos para las celdas del encabezado */
+thead th {
+  background-color: #4682b4; /* Celeste más oscuro */
+  color: white;
+  text-align: left;
+  padding: 12px;
+  font-size: 1rem;
+}
+
+/* Estilos para las filas de datos */
+tbody td {
+  background-color: #e6f2ff; /* Fondo celeste claro */
+  color: #333; /* Texto oscuro */
+  padding: 12px;
+  border-bottom: 1px solid #cce6ff;
+}
+
+/* Estilo para la última fila (Precio total) */
+tbody tr:last-child td {
+  background-color: #cce6ff; /* Fondo celeste medio */
+  font-weight: bold;
+  color: #000;
+}
+
+/* Estilos para las filas cuando se pasa el mouse por encima */
+tbody tr:hover td {
+  background-color: #b0c4de; /* Gris celeste más oscuro */
+}
+
+
+/* Bordes redondeados para las celdas de la tabla */
+tbody tr:first-child td:first-child {
+  border-top-left-radius: 12px;
+}
+
+tbody tr:first-child td:last-child {
+  border-top-right-radius: 12px;
+}
+
+tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 12px;
+}
+
+tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 12px;
 }
 
 

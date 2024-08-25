@@ -1,38 +1,54 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 
 
-const ItemCount = ({stock, initial, onAdd}) => {
-    const [quantity, setQuantity] = useState(initial)
+
+const ItemCount = ({stock, initial, handleOnBuy}) => {
+    const navigate = useNavigate();
+    const [qty, setQty] = useState(initial)
+    const [itemAdded, setItemAdded] = useState(false);
 
     const increment = () => {
-        if (quantity < stock) {
-            setQuantity (quantity+1)
+        if (qty < stock) {
+            setQty (qty+1)
         }
     }
 
 
     const decrement = () => {
-        if (quantity > 1){
-            setQuantity (quantity-1)
+        if (qty > 1){
+            setQty (qty-1)
         }
     }
 
-    return (
-        <div className="counter">
-            <div className="controls">
+    const handleAddToCart = () =>{
+        handleOnBuy(qty)
+        setItemAdded(true)
+      }
+
+      const handleGoToCheckout = () =>{
+        setItemAdded(false)
+        navigate("/cart")
+      }
+
+    return (   <>
+        {itemAdded ? (
+          <button className= "btn btn-primary" variant="primary" onClick={handleGoToCheckout}>Continuar compra</button>
+        ) : (
+          <>
+           <div className="controls">
                 <button className= "btn btn-primary" variant="primary" onClick={decrement}> - </button>
-                <h5>{quantity}</h5>
+                <h5>{qty}</h5>
                 <button className= "btn btn-primary" variant="primary" onClick={increment}> + </button>
 
             </div>
-            <div className="btn btn-primary" variant="primary">
-                <button className="btn btn-primary" variant="primary" onClick={()=> onAdd(quantity)} disabled = {!stock}>
-                    Agregar al carrito </button>
-            </div>
-        </div>
-    )
-}
+            <button className= "btn btn-primary" variant="primary" onClick={handleAddToCart}>Agregar al carrito</button>
+          </>
+        )}
+      </>
+    );
+  };
 export default ItemCount
 

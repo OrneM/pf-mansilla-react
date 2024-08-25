@@ -10,7 +10,7 @@ return (
         <div className="card-body">
         <h2 className="card-title">{name}</h2>
         <p className="card-text">Id: {id}</p>
-        <h3 className="card-text">{price}</h3>
+        <h3 className="card-text"> ${price}</h3>
         <p className="card-text">Stock: {stock}</p>
         <Link className="btn btn-primary" to={`/item/${id}`}>Ver detalle</Link>
     </div>

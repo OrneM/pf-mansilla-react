@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import CartContextProvider from './context/CartContext.jsx';
 import './App.css';
 import NavBar from './components/NavBar/NavBar.jsx';
 import AboutUs from './components/AboutUs/AboutUs.jsx';
@@ -13,7 +14,9 @@ function App() {
   const greeting = "Bienvenidos a La michITienda"
 
   return (
-    <div>
+  
+  <div>
+    <CartContextProvider>
       <Router>
         <NavBar />
         <Routes>
@@ -27,7 +30,9 @@ function App() {
         </Routes>
         <Footer/>
        </Router>
+      </CartContextProvider>
     </div>
+    
   );
 }
 
