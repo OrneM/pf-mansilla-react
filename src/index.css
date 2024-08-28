@@ -54,25 +54,27 @@ div.container-fluid{
   flex-direction: row;
   text-decoration: none !important;
   color: rgb(36, 36, 36);
+  background-color: #b2dbf31b;
   
 }
 
 .cart-icon-container:hover {
   transform: scale(1.1); /* Agrandar la imagen */
-  box-shadow: none; /* Eliminar la sombra */ 
+  box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.113)
 }
 
 img.logo {
-  width: 170px;
-  height: 170px;
+  width: 200px;
+  height: 200px;
     position: relative;
     padding: 10px;
     transition: transform 0.6s ease, box-shadow 0.3s ease; /* Ajusta la duración del transform */
+  border-radius: 100%;
 }
   
   .logo:hover {
     transform: scale(1.1); /* Agrandar la imagen */
-    box-shadow: none; /* Eliminar la sombra */
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.113)
   }
 
   .navbar-shorcuts .cart-container:first-of-type {
@@ -158,10 +160,19 @@ img.logo {
 .greeting {
   display: flex;
   justify-content: center;
-  background-color: rgb(0, 0, 0);
-  color: #e5e5e5de;
+  align-items: center;
+  background: linear-gradient(90deg, #c0e7f3, #6baed6, #2a6496);
+  color: #ffffff;
   margin-bottom: 0;
   width: 100%;
+  font-size: 2.5rem; /* Tamaño del texto */
+  font-weight: bold; /* Texto en negrita */
+  padding: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Sombra para darle profundidad */
+  border-radius: 10px; /* Bordes redondeados */
+  text-align: center;
+  letter-spacing: 2px; /* Espaciado entre letras */
+  margin-top: 15px;
 }
 
 .product-container {
@@ -266,6 +277,19 @@ bs-btn-active-bg:active {
    
     
   }
+
+  div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-confirm) {
+    border: 0;
+    border-radius: .25em;
+    background: initial;
+    background-color: #5a9bd5 !important;
+    border-color: #5a9bd5 !important;
+    margin: 10px;
+    color: #fff;
+    font-size: 1em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añade una sombra para dar profundidad */
+    transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
+}
   
 
 .controls {

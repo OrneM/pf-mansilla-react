@@ -11,8 +11,8 @@ const ItemListContainer = ({title}) => {
   const [products, setProducts] = useState([])
   const { categoryId } = useParams()
   const [loading, setLoading] = useState(true);
-  const {titulo} = useCartContext()
-  let tituloParaMostrar = titulo
+  
+  
 
 
     useEffect(()=> {
@@ -45,7 +45,6 @@ const ItemListContainer = ({title}) => {
     return (
         <div>
         <h1 className='greeting'>{title}</h1>
-        <h2 className='greeting'>{tituloParaMostrar}</h2>
         <div className='main-bkg'>            
         { loading 
               ? <Loader /> 
