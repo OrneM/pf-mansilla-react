@@ -311,48 +311,42 @@ bs-btn-active-bg:active {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
+
 table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  background-color: #f0f8ff; /* Fondo celeste claro */
+  background-color: #f0f8ff;
   border-radius: 12px;
   overflow: hidden;
 }
 
-/* Estilos para las celdas del encabezado */
 thead th {
-  background-color: #4682b4; /* Celeste más oscuro */
+  background-color: #4682b4;
   color: white;
   text-align: left;
   padding: 12px;
   font-size: 1rem;
 }
 
-/* Estilos para las filas de datos */
 tbody td {
-  background-color: #e6f2ff; /* Fondo celeste claro */
-  color: #333; /* Texto oscuro */
+  background-color: #e6f2ff;
+  color: #333;
   padding: 12px;
   border-bottom: 1px solid #cce6ff;
 }
 
-/* Estilo para la última fila (Precio total) */
 tbody tr:last-child td {
-  background-color: #cce6ff; /* Fondo celeste medio */
+  background-color: #cce6ff;
   font-weight: bold;
   color: #000;
 }
 
-/* Estilos para las filas cuando se pasa el mouse por encima */
 tbody tr:hover td {
-  background-color: #b0c4de; /* Gris celeste más oscuro */
+  background-color: #b0c4de;
 }
 
-
-/* Bordes redondeados para las celdas de la tabla */
 tbody tr:first-child td:first-child {
   border-top-left-radius: 12px;
 }
@@ -378,7 +372,7 @@ tbody tr:last-child td:last-child {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.style-form{
+.style-form {
   display: flex;
   flex-direction: column;
   width: 500px;
@@ -386,28 +380,27 @@ tbody tr:last-child td:last-child {
   justify-content: space-around;
   align-items: stretch;
   flex-wrap: wrap;
-  
 }
 
 label {
   margin-bottom: 8px;
-  color: #333; /* Gris oscuro */
+  color: #333;
   font-weight: bold;
 }
 
 input {
   margin-bottom: 15px;
   padding: 10px;
-  border: 1px solid #ccc; /* Gris claro */
+  border: 1px solid #ccc;
   border-radius: 8px;
-  background-color: #ffffff; /* Blanco */
+  background-color: #ffffff;
   font-size: 16px;
-  color: #333; /* Gris oscuro */
+  color: #333;
 }
 
 input:focus {
   outline: none;
-  border-color: #00b4d8; /* Celeste pastel más intenso */
+  border-color: #00b4d8;
   box-shadow: 0px 0px 5px rgba(0, 180, 216, 0.5);
 }
 
@@ -418,22 +411,21 @@ input:focus {
   background-color: #5a9bd5;
   border-color: #5a9bd5;
   margin: 10px;
-  padding: 0.75rem 1.5rem; /* Botón más grande */
-  font-size: 1.25rem; /* Texto más grande */
+  padding: 0.75rem 1.5rem;
+  font-size: 1.25rem;
   line-height: 1.5;
-  border-radius: 0.5rem; /* Bordes más redondeados */
+  border-radius: 0.5rem;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añade una sombra para dar profundidad */
-  transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
-
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .submit-btn:hover {
   background-color: #4a8ac1;
   border-color: #4a8ac1;
-  transform: translateY(-2px); /* Eleva ligeramente el botón al hacer hover */
+  transform: translateY(-2px);
 }
 
 .btn-continuar-compra {
@@ -443,28 +435,87 @@ input:focus {
   background-color: #5a9bd5;
   border-color: #5a9bd5;
   margin: 10px;
-  padding: 0.75rem 1.5rem; /* Botón más grande */
-  font-size: 1.25rem; /* Texto más grande */
+  padding: 0.75rem 1.5rem;
+  font-size: 1.25rem;
   line-height: 1.5;
-  border-radius: 0.5rem; /* Bordes más redondeados */
+  border-radius: 0.5rem;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añade una sombra para dar profundidad */
-  transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .btn-continuar-compra:hover {
   background-color: #4a8ac1;
   border-color: #4a8ac1;
-  transform: translateY(-2px); /* Eleva ligeramente el botón al hacer hover */
+  transform: translateY(-2px);
 }
 
 .btn-continuar-compra:active {
   background-color: #41769b;
   border-color: #4a8ac1;
-  transform: translateY(0); /* Retorna a su posición original al hacer clic */
+  transform: translateY(0);
 }
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 768px) {
+  .form-container {
+    margin: 20px;
+    padding: 50px;
+    width: 90%; /* Asegura que el contenedor ocupe casi todo el ancho de la pantalla */
+    display: flex;
+  }
+
+  .style-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    align-items: flex-start; /* Alinea los elementos al inicio */
+    flex-wrap: wrap;
+}
+
+.style-form > *:last-child {
+    align-self: center; /* Alinea el último elemento al centro */
+}
+
+  table {
+    font-size: 0.9rem; /* Reduce ligeramente el tamaño de la fuente para móviles */
+  }
+
+  thead {
+    display: none; /* Oculta la cabecera de la tabla en móviles */
+  }
+
+  tbody, tr, td {
+    display: block;
+    width: 100%;
+  }
+
+  td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+
+  td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .submit-btn, .btn-continuar-compra {
+    width: 70%;
+    font-size: 1rem; /* Reduce ligeramente el tamaño de la fuente */
+    padding: 0.5rem 1rem; /* Reduce el padding */
+  }
+}
+
 
 
 footer {
