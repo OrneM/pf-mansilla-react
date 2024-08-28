@@ -49,7 +49,7 @@ Para clonar y ejecutar este proyecto en tu máquina local, sigue estos pasos:
 
    ```bash
 
-    npm start
+    npm run dev
 
 
 
