@@ -105,7 +105,47 @@ img.logo {
 
 .nav-link:hover::after {
   width: 100%; /* Expande el subrayado al ancho completo del enlace */
+
 }
+
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Espacio entre las huellas */
+  height: 100vh; /* Centra verticalmente en pantalla completa */
+}
+
+.loader-footprint {
+  width: 100px;
+  display: block;
+  animation: walk 1s linear infinite;
+}
+
+@keyframes walk {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+}
+
+.loader-footprint:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loader-footprint:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+
 
 .main-bkg {
   display: flex;
@@ -246,8 +286,8 @@ bs-btn-active-bg:active {
 .table-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  height: 535px;
+  align-items: center;
+
 }
 table {
   width: 100%;
@@ -303,6 +343,103 @@ tbody tr:last-child td:first-child {
 
 tbody tr:last-child td:last-child {
   border-bottom-right-radius: 12px;
+}
+
+.form-container {
+  background-color: #f0f8ff;
+  padding: 40px;
+  max-width: fit-content;
+  margin: 70px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.style-form{
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 500px;
+  justify-content: space-around;
+  align-items: stretch;
+  flex-wrap: wrap;
+  
+}
+
+label {
+  margin-bottom: 8px;
+  color: #333; /* Gris oscuro */
+  font-weight: bold;
+}
+
+input {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc; /* Gris claro */
+  border-radius: 8px;
+  background-color: #ffffff; /* Blanco */
+  font-size: 16px;
+  color: #333; /* Gris oscuro */
+}
+
+input:focus {
+  outline: none;
+  border-color: #00b4d8; /* Celeste pastel más intenso */
+  box-shadow: 0px 0px 5px rgba(0, 180, 216, 0.5);
+}
+
+.submit-btn {
+  display: inline-block;
+  font-weight: 600;
+  color: #fff;
+  background-color: #5a9bd5;
+  border-color: #5a9bd5;
+  margin: 10px;
+  padding: 0.75rem 1.5rem; /* Botón más grande */
+  font-size: 1.25rem; /* Texto más grande */
+  line-height: 1.5;
+  border-radius: 0.5rem; /* Bordes más redondeados */
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añade una sombra para dar profundidad */
+  transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
+
+}
+
+.submit-btn:hover {
+  background-color: #4a8ac1;
+  border-color: #4a8ac1;
+  transform: translateY(-2px); /* Eleva ligeramente el botón al hacer hover */
+}
+
+.btn-continuar-compra {
+  display: inline-block;
+  font-weight: 600;
+  color: #fff;
+  background-color: #5a9bd5;
+  border-color: #5a9bd5;
+  margin: 10px;
+  padding: 0.75rem 1.5rem; /* Botón más grande */
+  font-size: 1.25rem; /* Texto más grande */
+  line-height: 1.5;
+  border-radius: 0.5rem; /* Bordes más redondeados */
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añade una sombra para dar profundidad */
+  transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
+}
+
+.btn-continuar-compra:hover {
+  background-color: #4a8ac1;
+  border-color: #4a8ac1;
+  transform: translateY(-2px); /* Eleva ligeramente el botón al hacer hover */
+}
+
+.btn-continuar-compra:active {
+  background-color: #41769b;
+  border-color: #4a8ac1;
+  transform: translateY(0); /* Retorna a su posición original al hacer clic */
 }
 
 

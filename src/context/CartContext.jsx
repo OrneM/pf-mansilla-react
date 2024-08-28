@@ -79,13 +79,34 @@ const CartContextProvider =({children})=>{
         localStorage.removeItem('qty')
     }
 
+    const handleOnChange = (e) => {
+        setFormData({...formData, [e.target.name]: e.target.value})
+      }
+  
+      const handleSaveCart = () => {
+        console.log("Saving in database")
+        console.log("formData", formData)
+        console.log("cart", cart)
+    
+        const ordersCollection = collection(db, "orders")
+        const newOrder = {
+          buyer: formData,
+          items: cart,
+          date: new Date(),
+          total: total
+        }
+    
+       
+      }
+  
+
     const contextValue = {
         qtyItems: qtyItems,
         total, 
         cart,
         addToCart,
         clearCart,
-        removeItem
+        removeItem,
     }
 
     return <Provider value={contextValue}>{children}</Provider>

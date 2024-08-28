@@ -1,26 +1,38 @@
 import { useEffect, useState } from "react"
-import { getProductsById } from "../../mock/asyncMock"
+import {Loader} from  "../Loader/Loader"; 
+import {db} from '../../firebase/dbConnection';
+import { collection, getDoc, doc} from "firebase/firestore";
 import ItemDetail from "../ItemDetail/ItemDetail"
 import {useParams} from "react-router-dom"
 
 const ItemDetailContainer = () => {
    const [product, setProduct] = useState({})
-
-    const { itemId } = useParams()
+   const [loading, setLoading] = useState(true);
+   const { itemId } = useParams()
 
     useEffect(()=> {
-        getProductsById(itemId)
-        .then(response => {
-            setProduct (response)
-        })
-        .catch(error => {
-            console.error(error)
-        })
+        setLoading(true);
+        const productCollection = collection(db, "productos");
+        const refDoc = doc(productCollection, itemId)
+
+        getDoc(refDoc)
+          .then((doc)=>{
+            setProduct({id: doc.id, ...doc.data()})
+            setLoading(false);
+            
+          })
+          .catch((error) => {
+            setLoading(false);
+            console.error("Error getting documents: ", error);
+          });
     }, [itemId])
 
     return (
         <div className="detail-container">
-            <ItemDetail {...product} />
+        { loading 
+          ? <Loader /> 
+          : <ItemDetail {...product}  />}
+   
         </div>
     )
 }
