@@ -1,9 +1,9 @@
-import cart from "../../assets/cart.png"
+import { BsCart3 } from "react-icons/bs"
 import { useCartContext } from "../../context/CartContext"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
-function CartWidget (){
+function CartWidget() {
 
     const { qtyItems } = useCartContext()
 
@@ -19,16 +19,10 @@ function CartWidget (){
 
 
     return (
-        <section className="cart-container">
-            {visible && ( 
-                <div className="cart-icon-container">
-                    <Link to="/cart">
-                        <img src={cart} alt="carrito-icono" className="cartImg" />
-                    </Link>
-                    <span className="qtyItems">{qtyItems}</span>
-                </div>
-            )}
-        </section>
+        <Link to="/cart" className={`cart-widget-container ${visible ? 'visible' : ''}`}>
+            <BsCart3 className="cart-icon" />
+            {qtyItems > 0 && <span className="cart-badge">{qtyItems}</span>}
+        </Link>
     );
 }
 

@@ -11,7 +11,7 @@ import Error404 from './components/Error404/Error404.jsx';
 import Footer from './components/Footer/Footer.jsx';
 
 function App() {
-  const greeting = "Bienvenidos a La michITienda"
+  const greeting = "Tecnología, gaming y accesorios con estilo 🐾"
 
   return (
   

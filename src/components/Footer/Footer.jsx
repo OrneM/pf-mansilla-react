@@ -1,7 +1,7 @@
 const Footer = () => {
 
   return(
-  <footer>🤍 Created by MichiLovers 🤍 </footer>
+  <footer>© 2025 · Ornela Mansilla · Portfolio Project</footer>
   )
     
   };

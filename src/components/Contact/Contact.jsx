@@ -1,5 +1,5 @@
 const Contact = () => {
-    return <h1>Contact form de La michITienda</h1>
-  };
-  
-  export default Contact;
+  return <h1>Contactanos</h1>
+};
+
+export default Contact;
