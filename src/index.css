@@ -5,33 +5,70 @@
   /* Asegura que padding y borders no aumenten el ancho/alto total */
 }
 
-div.container-fluid {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-}
-
 .navbar>.container-fluid {
   align-items: normal;
 }
 
 .navbar-logo {
   align-self: center;
+  padding-bottom: 2rem;
+  /* Spacing for hover scale */
+  z-index: 1060;
+  /* Ensure on top */
 }
 
 .navbar-shorcuts {
   display: flex;
 }
 
+.navbar-shorcuts {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  position: relative;
+}
+
 .navbar-toggler-container {
-  flex: 1;
-  place-content: center;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  /* Separate from logo */
+}
+
+.cart-widget-container {
+  /* Ensure it doesn't break flow if we leave it static? 
+      Actually let's position the cart absolutely to not affect center alignment of toggler.
+   */
+}
+
+/* We need to target the CartWidget component's container if possible, which is .cart-widget-container in CartWidget.jsx 
+   but here it is a child of navbar-shorcuts.
+   Let's target the last child of navbar-shortcuts or specific class if available.
+   Wait, CartWidget renders a Link with class .cart-widget-container.
+*/
+.navbar-shorcuts>.cart-widget-container {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .navbar-expand-lg .navbar-collapse {
-  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
+
+.navbar-nav {
+  align-items: center;
+  justify-content: center;
+  /* Center items in the list horizontally */
+  width: 100%;
+  flex-direction: row;
+  /* Ensure row on desktop default */
+}
+
+
+
 
 
 .qtyItems {
@@ -87,15 +124,23 @@ img.logo {
   visibility: hidden;
 }
 
+.navbar-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
 .nav-link {
   position: relative;
   display: inline-block;
   text-decoration: none;
-  color: #333;
-  /* Color del texto */
-  transition: color 0.3s ease;
-  /* Suaviza el cambio de color */
-  margin: 10px;
+  font-weight: 600;
+  color: #6c757d;
+  transition: all 0.3s ease;
+  margin: 0 5px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  /* Pill shape */
 }
 
 .nav-link::after {
@@ -112,15 +157,112 @@ img.logo {
 }
 
 .nav-link:hover {
-  color: #000;
-  /* Color del texto al hacer hover */
+  color: #5a9bd5;
+  background-color: #f0f8ff;
+  /* AliceBlue */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(90, 155, 213, 0.2);
+}
+
+.nav-link.active {
+  color: #fff;
+  background-color: #5a9bd5;
+  box-shadow: 0 4px 6px rgba(90, 155, 213, 0.3);
 }
 
 .nav-link:hover::after {
-  width: 100%;
-  /* Expande el subrayado al ancho completo del enlace */
-
+  width: 0;
 }
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+    padding-top: 1.5rem;
+    /* More air top */
+    padding-bottom: 1.5rem;
+  }
+
+  .navbar-nav {
+    gap: 1.5rem;
+    /* More air between items */
+    flex-direction: column;
+    /* Force vertical stack on mobile */
+    width: 100%;
+  }
+
+  .nav-link {
+    font-size: 1.25rem;
+    /* Large links */
+    background-color: transparent !important;
+    /* Reset default pill bg */
+    padding: 5px 15px;
+    /* Smaller padding */
+    color: #6c757d;
+  }
+
+  .nav-link.active {
+    background-color: #5a9bd5 !important;
+    /* Only active has bg */
+    color: white !important;
+    font-size: 1.1rem;
+    /* Slightly smaller for active pill */
+    padding: 5px 18px;
+    /* Compact pill */
+    box-shadow: 0 4px 6px rgba(90, 155, 213, 0.2);
+  }
+
+  .nav-link:not(.active):hover {
+    color: #5a9bd5;
+    transform: scale(1.05);
+    /* Gentle tap feedback */
+  }
+}
+
+/* Clean up orphaned code */
+
+.navbar-toggler {
+  border: none;
+  font-size: 2rem;
+  color: #5a9bd5;
+  transition: transform 0.2s ease;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+  /* remove bootstrap default outline */
+}
+
+.navbar-toggler:hover {
+  transform: scale(1.1);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  /* Removed unused custom navbar-links styles */
+
+  .navbar-links.active {
+    transform: translateY(0);
+  }
+
+  .navbar-toggle {
+    display: block;
+  }
+
+  .nav-link {
+    font-size: 1.5rem;
+    width: 80%;
+    text-align: center;
+  }
+}
+
+/* Ensure navbar-links in mobile break out of the flex-1 container logic if needed,
+   or since it's fixed position, it shouldn't matter.
+   But we need to ensure navbar-toggle is visible.
+*/
 
 
 .loader-container {
@@ -207,6 +349,16 @@ img.logo {
     transform: scale(1);
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
   }
+}
+
+div.container-fluid {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.navbar>.container-fluid {
+  align-items: normal;
 }
 
 .product-container {
