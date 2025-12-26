@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-
+import banner2 from '../../assets/banner2.png';
 
 const Hero = ({ greeting, image }) => {
     return (
         <div className="hero-container">
-            <img src={image} alt="Hero Banner" className="hero-image" />
+            <img src={banner2} alt="Hero Banner" className="hero-image" />
         </div>
     );
 };
