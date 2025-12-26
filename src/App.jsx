@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import CartContextProvider from './context/CartContext.jsx';
+import { SearchProvider } from './context/SearchContext.jsx';
 import './App.css';
 import NavBar from './components/NavBar/NavBar.jsx';
 import AboutUs from './components/AboutUs/AboutUs.jsx';
@@ -14,25 +15,27 @@ function App() {
   const greeting = "Tecnología, gaming y accesorios con estilo 🐾"
 
   return (
-  
-  <div>
-    <CartContextProvider>
-      <Router>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<ItemListContainer title={greeting} />} />
-          <Route path='/category/:categoryId' element={<ItemListContainer title={greeting} />} />
-          <Route path='/item/:itemId' element={<ItemDetailContainer />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="*" element={<Error404 />} />
-        </Routes>
-        <Footer/>
-       </Router>
+
+    <div>
+      <CartContextProvider>
+        <SearchProvider>
+          <Router>
+            <NavBar />
+            <Routes>
+              <Route path="/" element={<ItemListContainer title={greeting} />} />
+              <Route path='/category/:categoryId' element={<ItemListContainer title={greeting} />} />
+              <Route path='/item/:itemId' element={<ItemDetailContainer />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/about" element={<AboutUs />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="*" element={<Error404 />} />
+            </Routes>
+            <Footer />
+          </Router>
+        </SearchProvider>
       </CartContextProvider>
     </div>
-    
+
   );
 }
 

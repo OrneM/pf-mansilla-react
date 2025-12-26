@@ -2,6 +2,7 @@ import { Link, NavLink } from 'react-router-dom'
 import CartWidget from "../CartWidget/CartWidget"
 import logo from "../../assets/logo.svg"
 import { useState } from 'react'
+import SearchWidget from "../SearchWidget/SearchWidget"
 
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,6 +17,7 @@ function NavBar() {
               <span className="navbar-toggler-icon"></span>
             </button>
           </div>
+          <SearchWidget />
           <CartWidget />
         </div>
 

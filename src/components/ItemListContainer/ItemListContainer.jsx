@@ -8,12 +8,14 @@ import { Loader } from "../Loader/Loader";
 import PropTypes from 'prop-types';
 import Hero from '../Hero/Hero';
 import banner from '../../assets/banner.jpg';
+import { useSearch } from '../../context/SearchContext';
 
 const ItemListContainer = ({ title }) => {
 
   const [products, setProducts] = useState([])
   const { categoryId } = useParams()
   const [loading, setLoading] = useState(true);
+  const { searchTerm } = useSearch();
 
 
 
@@ -44,13 +46,18 @@ const ItemListContainer = ({ title }) => {
 
   }, [categoryId])
 
+  const filteredProducts = products.filter(product =>
+    product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    (product.description && product.description.toLowerCase().includes(searchTerm.toLowerCase()))
+  );
+
   return (
     <div>
       <Hero greeting={title} image={banner} />
       <div className='main-bkg'>
         {loading
           ? <Loader />
-          : <ItemList products={products} />}
+          : <ItemList products={filteredProducts} />}
       </div>
     </div>
   )
